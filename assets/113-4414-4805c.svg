@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="172" height="172" viewBox="0 0 172 172" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#233;&#146;&#159;&#232;&#161;&#168;">
+<circle id="Ellipse 55" cx="86" cy="86" r="86" fill="#AB8063"/>
+<circle id="Clock Face" cx="85.3723" cy="86.6277" r="71.562" fill="#FFF9F5"/>
+<circle id="Ellipse" cx="85.3723" cy="30.9685" r="6.36107" fill="#4A3326"/>
+<circle id="Ellipse_2" cx="85.3723" cy="142.287" r="6.36107" fill="#4A3326"/>
+<circle id="Ellipse_3" cx="29.7129" cy="86.6275" r="6.36107" fill="#4A3326"/>
+<circle id="Ellipse_4" cx="141.032" cy="86.6275" r="6.36107" fill="#4A3326"/>
+<line id="Hour Hand" x1="88.1043" y1="87.3598" x2="105.188" y2="116.949" stroke-width="4" stroke-linecap="round" stroke="#4A3326"/>
+<line id="Minute Hand" x1="85.3723" y1="84.86" x2="122.962" y2="47.2706" stroke-width="2.5" stroke-linecap="round" stroke="#4A3326"/>
+<circle id="Center Cap" cx="85.3723" cy="86.6275" r="6.36107" fill="#FFAF7D"/>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="180" height="280.427" viewBox="0 0 180 280.427" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 998">
+<path id="trunk" d="M61.0031 198.407C58.3628 187.344 66.5167 176.636 77.8832 176.239L120.891 174.737C131.964 174.35 140.754 183.964 139.38 194.959L130.971 262.233C129.845 271.24 122.188 278 113.11 278L94.2095 278C85.8781 278 78.6354 272.283 76.7013 264.179L61.0031 198.407Z" fill="#6B5E4F"/>
+<g id="crown">
+<ellipse id="leaf-1" cx="73.0709" cy="58.5261" rx="36" ry="48" transform="rotate(-18 73.0709 58.5261)" fill="#4F8F83"/>
+<ellipse id="leaf-2" cx="112.314" cy="75.1801" rx="40" ry="52" transform="rotate(12 112.314 75.1801)" fill="#5DA194"/>
+<ellipse id="leaf-3" cx="56.1526" cy="100.809" rx="32" ry="44" transform="rotate(-22 56.1526 100.809)" fill="#3C756B"/>
+<ellipse id="leaf-4" cx="124.121" cy="124.255" rx="34" ry="46" transform="rotate(18 124.121 124.255)" fill="#4F8F83"/>
+<ellipse id="leaf-5" cx="74.1732" cy="142.561" rx="28" ry="38" transform="rotate(-10 74.1732 142.561)" fill="#5DA194"/>
+<ellipse id="leaf-6" cx="103.354" cy="157.968" rx="26" ry="36" transform="rotate(10 103.354 157.968)" fill="#5DA194"/>
+<path id="stem" d="M89.231 72.2673C89.105 69.3964 91.3985 67.0001 94.2722 67C96.9316 67 99.1347 69.0639 99.3078 71.7177L105.948 173.488C106.154 176.658 103.907 179.461 100.769 179.948C97.1576 180.509 93.86 177.808 93.6999 174.156L89.231 72.2673Z" fill="#6B5E4F"/>
+</g>
+</g>
+</svg>

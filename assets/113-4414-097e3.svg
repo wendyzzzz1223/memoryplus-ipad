@@ -1,0 +1,42 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="756" height="391.241" viewBox="0 0 756 391.241" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 994">
+<ellipse id="Sofa Shadow" cx="378" cy="372.31" rx="353.379" ry="18.931" fill="#3F281E" fill-opacity="0.117647"/>
+<rect id="Sofa Base Platform" x="37.2414" y="290.276" width="681.517" height="63.1035" rx="20" fill="#E89B6A"/>
+<rect id="Rectangle" x="72.5793" y="340.759" width="30.2897" height="37.8621" rx="6" fill="#80563B"/>
+<rect id="Rectangle_2" x="653.131" y="340.759" width="30.2897" height="37.8621" rx="6" fill="#80563B"/>
+<rect id="Backrest Cushion" x="50.3621" y="0.5" width="655.276" height="200.931" rx="39.5" fill="#FFAF7D" stroke="#E89B6A"/>
+<circle id="Ellipse" cx="184.903" cy="84.5586" r="8.83448" fill="#E89B6A"/>
+<circle id="Ellipse_2" cx="386.834" cy="84.5586" r="8.83448" fill="#E89B6A"/>
+<circle id="Ellipse_3" cx="588.766" cy="84.5586" r="8.83448" fill="#E89B6A"/>
+<g id="Left Armrest Cushion" filter="url(#filter0_d_0_74)">
+<rect x="12.75" y="139.577" width="74.2241" height="175.19" rx="29.25" fill="#FFC29E" stroke-width="1.5" stroke="#E89B6A"/>
+</g>
+<g id="Right Armrest Cushion" filter="url(#filter1_d_0_74)">
+<rect x="669.026" y="139.577" width="74.2241" height="175.19" rx="29.25" fill="#FFC29E" stroke-width="1.5" stroke="#E89B6A"/>
+</g>
+<rect id="Left Seat Cushion" x="78.1276" y="189.81" width="301.897" height="125.207" rx="23.5" fill="#FFC29E" stroke="#E89B6A"/>
+<rect id="Right Seat Cushion" x="375.976" y="189.81" width="301.897" height="125.207" rx="23.5" fill="#FFC29E" stroke="#E89B6A"/>
+</g>
+<defs>
+<filter id="filter0_d_0_74" x="0" y="136.827" width="91.7241" height="192.69" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-4" dy="6"/>
+<feGaussianBlur stdDeviation="4"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.290196 0 0 0 0 0.2 0 0 0 0 0.14902 0 0 0 0.0705882 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_74"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_74" result="shape"/>
+</filter>
+<filter id="filter1_d_0_74" x="664.276" y="136.827" width="91.7241" height="192.69" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="4" dy="6"/>
+<feGaussianBlur stdDeviation="4"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.290196 0 0 0 0 0.2 0 0 0 0 0.14902 0 0 0 0.0705882 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_74"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_74" result="shape"/>
+</filter>
+</defs>
+</svg>
