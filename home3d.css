@@ -1,0 +1,156 @@
+.home-entry{position:absolute;left:845px;top:718px;z-index:8;width:180px;display:grid;justify-items:center;gap:9px;border:0;background:none!important;color:#345e50!important;font-size:24px;font-weight:750;cursor:pointer;transform:rotate(-12deg);filter:drop-shadow(4px 8px 5px #50391c30)}
+.home-entry svg{width:145px;height:85px}
+.home-entry span{padding:7px 15px;border-radius:15px;background:#fff9e9}
+.home-entry:hover{transform:translateY(-6px) rotate(-9deg)}
+.home3d{position:fixed;inset:0;z-index:100;background:#f9f7f0;color:#293e35;font-family:"Alibaba PuHuiTi","PingFang SC","Microsoft YaHei",sans-serif;display:flex;flex-direction:column}
+.home3d *{box-sizing:border-box}
+.home3d button{font:inherit;cursor:pointer;border:0}
+.home3d button:focus-visible{outline:3px solid #db8e5c;outline-offset:3px}
+.home3d-header{height:86px;flex:none;display:flex;align-items:center;gap:20px;padding:16px 30px;background:#fffcf5;border-bottom:1px solid #e1e6db}
+.home3d-back{width:50px;height:50px;border-radius:16px;background:#e8eee4;color:#345e50;font-size:32px!important}
+.home3d-header h1{font-size:29px;margin:0}
+.home3d-header p{margin:3px 0 0;color:#6e7e71;font-size:16px}
+.home3d-tools{display:flex;gap:10px;margin-left:auto}
+.home3d-tools button{padding:12px 15px;border:1px solid #dbe2d5;border-radius:14px;background:#fffdf8;color:#345e50;font-size:17px}
+.home3d-body{display:grid;grid-template-columns:minmax(0,1fr) 306px;flex:1;min-height:0}
+.home3d-scene{position:relative;min-width:0;overflow:hidden;background:radial-gradient(ellipse at center,#fcfaf4,#eaece1)}
+.home3d-scene canvas{display:block;width:100%;height:100%;touch-action:none}
+.home3d-tip{position:absolute;left:20px;bottom:18px;right:20px;text-align:center;color:#5d7064;font-size:15px;pointer-events:none}
+.home3d-actions{position:absolute;left:20px;top:18px;display:flex;gap:8px}
+.home3d-actions button{width:44px;height:44px;border-radius:13px;background:#fffdf2e8;color:#345e50;box-shadow:0 3px 12px #38432913;font-size:23px}
+.home3d-task{padding:28px 22px;border-left:1px solid #dce3d5;background:#fffcf5;overflow:auto}
+.home3d-task small{font-size:17px;color:#70816e}
+.home3d-task h2{font-size:25px;margin:8px 0 22px}
+.home3d-command{font-size:29px;line-height:1.5;margin:0 0 22px;font-weight:750;min-height:130px}
+.home3d-task .home3d-primary{width:100%;padding:15px;border-radius:16px;background:#345e50;color:white;font-size:22px}
+.home3d-task .home3d-secondary{width:100%;padding:13px;border-radius:16px;background:#eaf0e5;color:#345e50;font-size:20px;margin-top:12px}
+.home3d-progress{display:flex;gap:8px;margin:26px 0}
+.home3d-progress i{height:6px;flex:1;border-radius:5px;background:#e5e9df}
+.home3d-progress i.done{background:#658f7e}
+.home3d-feedback{font-size:19px;line-height:1.5;color:#697c6e;min-height:55px}
+.home3d-hotspot{position:absolute;z-index:2;width:42px;height:42px;border:2px solid #fff!important;background:#fffdf5ed;color:#345e50;border-radius:50%;box-shadow:0 3px 12px #344c3428;font-size:23px!important;transform:translate(-50%,-50%)}
+.home3d-hotspot.hinted{background:#f2bd87;box-shadow:0 0 0 10px #f2bd8750}
+.home3d-popup{position:absolute;z-index:4;left:50%;bottom:64px;transform:translateX(-50%);width:340px;max-width:90%;padding:23px;background:#fffdf5f5;backdrop-filter:blur(14px);border:1px solid #d6ddcc;border-radius:22px;box-shadow:0 12px 40px #203c3426}
+.home3d-popup h3{font-size:24px;margin:0 36px 16px 0}
+.home3d-popup p{font-size:18px;line-height:1.5;margin:8px 0 15px;color:#687b6d}
+.home3d-popup button{width:100%;padding:14px;border-radius:13px;margin-top:8px;background:#345e50;color:white;font-size:20px}
+.home3d-popup .home3d-dismiss{position:absolute;right:12px;top:6px;width:36px;padding:5px;background:transparent;color:#345e50;font-size:25px}
+.home3d-popup .power{background:#c66f4c}
+.home3d-popup .remote-shape{width:100px;padding:18px 10px;background:#343f39;border-radius:22px;margin:0 auto}
+.home3d-popup .remote-shape button{height:44px;padding:5px;font-size:16px}
+.home3d-popup .remote-shape .remote-pad{height:42px;display:grid;place-items:center;color:#f0eee1;border:1px solid #78877d;border-radius:50%;margin-top:14px}
+.home3d-error{position:absolute;inset:20%;display:grid;place-content:center;text-align:center;font-size:24px;line-height:1.6}
+@media(max-width:950px){.home3d-header{height:72px;padding:10px 18px;gap:12px}.home3d-header h1{font-size:23px}.home3d-tools button{font-size:15px;padding:10px}.home3d-body{grid-template-columns:minmax(0,1fr) 252px}.home3d-task{padding:20px 16px}.home3d-command{font-size:24px}.home3d-hotspot{width:38px;height:38px}}
+@media(max-width:650px) and (orientation:portrait){.home3d-body{grid-template-columns:1fr;grid-template-rows:minmax(300px,1fr) auto}.home3d-task{padding:16px 20px;border-top:1px solid #ddd;max-height:38vh}.home3d-command{min-height:0;font-size:23px;margin:8px 0}.home3d-task h2,.home3d-progress{margin:8px 0}.home3d-tools button{font-size:13px}.home3d-header p{display:none}.home3d-feedback{min-height:0}.home3d-tip{font-size:12px;bottom:8px}}
+.home3d-planning{margin-top:14px;padding-top:14px;border-top:1px solid #dce3d5}
+.home3d-room-label{position:absolute;z-index:1;transform:translate(-50%,-50%);padding:5px 9px;border-radius:8px;background:#fffcf1dd;color:#4f6655;font-size:15px;pointer-events:none;white-space:nowrap}
+.home3d-tools button{white-space:nowrap}
+.home3d button:disabled{opacity:.45;cursor:default}
+@media(max-width:950px){.home3d-tools{gap:5px}.home3d-tools button{padding:9px;font-size:14px}}
+.home3d-select-label{display:block;margin-bottom:8px;font-size:16px;color:#617666}
+.home3d-task select{width:100%;padding:12px 10px;border:1px solid #cbd8c5;border-radius:12px;background:#edf2e7;color:#345e50;font:inherit;font-size:18px;margin:0 0 24px}
+.home3d-records{border-top:1px solid #dce3d5;margin-top:24px;padding-top:15px}
+.home3d-records h3{font-size:18px;margin:0 0 10px}
+.home3d-records p{font-size:15px;line-height:1.5;color:#65796a;margin:9px 0}
+/* Keep the instruction above the scene, in the same line of sight. */
+.home3d-header{height:72px;padding:10px 20px;gap:16px}
+.home3d-header h1{font-size:26px}
+.home3d-header p{font-size:14px}
+.home3d-tools{gap:7px}.home3d-tools button{padding:11px 13px;font-size:16px}
+.home3d-instruction{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 22px;padding:13px 26px 12px;background:#fffcf5;border-bottom:1px solid #dbe4d6;z-index:3}
+.home3d-instruction-title{display:flex;align-items:center;gap:16px;grid-column:1}
+.home3d-instruction-title small{font-size:15px;color:#6b7f70}
+.home3d-instruction-title h2{font-size:17px;margin:0;color:#547563}
+.home3d-instruction .home3d-command{font-size:clamp(23px,2.3vw,34px);line-height:1.35;min-height:0;margin:0;grid-column:1;grid-row:2}
+.home3d-inline-actions{grid-column:2;grid-row:1/4;display:flex;align-items:center;gap:9px}
+.home3d-primary,.home3d-secondary{border-radius:13px;padding:12px 18px;font-size:19px;background:#345e50;color:#fff}
+.home3d-secondary{background:#eaf0e5;color:#345e50}
+.home3d-inline-actions button{min-height:48px;white-space:nowrap}
+.home3d-instruction .home3d-feedback{grid-column:1;font-size:16px;min-height:0;line-height:1.35;margin:0;color:#6d7a6b}
+.home3d-instruction .home3d-progress{grid-column:1;display:flex;max-width:320px;margin:4px 0 0;gap:7px}
+.home3d-progress i{height:4px}
+.home3d-body{position:relative;display:flex;flex:1;min-height:0}
+.home3d-scene{width:100%;height:100%;flex:1}
+.home3d-task{position:absolute;right:16px;top:14px;bottom:16px;width:310px;z-index:8;border:1px solid #dce3d5;box-shadow:0 12px 35px #293e3526;border-radius:20px;padding:22px;background:#fffcf5f7;backdrop-filter:blur(12px)}
+.home3d-task[hidden],.home3d [hidden]{display:none!important}
+.home3d-task select{font-size:18px}.home3d-task .home3d-secondary{margin-top:0}
+.home3d-planning{position:absolute;left:50%;bottom:38px;transform:translateX(-50%);display:flex;gap:12px;border:0;margin:0;padding:9px;background:#fffdf2ee;border-radius:19px;box-shadow:0 5px 20px #293e351a;white-space:nowrap}
+.home3d-planning button{font-size:20px;min-height:48px}
+.home3d-tip{font-size:14px;bottom:4px;margin:5px}
+.home3d-hotspot{width:46px;height:46px;font-size:22px!important}
+@media(max-width:1050px){.home3d-header{padding:9px 14px;height:66px}.home3d-tools button{padding:10px;font-size:15px}.home3d-instruction{padding:11px 18px;gap:5px 12px}.home3d-command{font-size:26px}.home3d-inline-actions{gap:6px}.home3d-inline-actions button{padding:10px;font-size:16px}.home3d-instruction-title{gap:10px}.home3d-instruction-title small{font-size:14px}.home3d-instruction-title h2{font-size:15px}}
+@media(max-width:650px){.home3d-header{height:auto;min-height:64px;gap:9px;flex-wrap:wrap}.home3d-header h1{font-size:23px}.home3d-header p{display:none}.home3d-back{width:42px;height:42px}.home3d-tools{gap:4px;flex:1;justify-content:flex-end}.home3d-tools button{font-size:13px;padding:9px 6px}.home3d-instruction{grid-template-columns:1fr;padding:10px 14px;gap:5px}.home3d-instruction .home3d-command{font-size:23px}.home3d-inline-actions{grid-column:1;grid-row:5;justify-content:flex-end}.home3d-inline-actions button{min-height:40px}.home3d-body{display:flex}.home3d-task{width:min(310px,92vw);max-height:none}.home3d-scene{min-height:250px}.home3d-planning{bottom:35px;gap:8px;padding:7px}.home3d-planning button{font-size:17px;padding:10px}.home3d-instruction .home3d-feedback{font-size:14px}.home3d-hotspot{width:40px;height:40px}}
+/* The home module uses the same 1366 × 1024 landscape iPad canvas as the app. */
+.home3d-shell{position:fixed;inset:0;z-index:100;overflow:hidden;background:#e7e9df}
+.home3d{inset:auto;left:50%;top:50%;width:1366px;height:1024px;transform:translate(-50%,-50%) scale(var(--home-frame-scale,1));transform-origin:center;box-shadow:0 12px 60px #293e3520;overflow:hidden}
+.home3d .home3d-header{height:72px;min-height:72px;flex-wrap:nowrap;padding:10px 20px;gap:16px}
+.home3d .home3d-header h1{font-size:26px}.home3d .home3d-header p{display:block;font-size:14px}
+.home3d .home3d-back{width:50px;height:50px}
+.home3d .home3d-tools{flex:initial;gap:7px;justify-content:normal}
+.home3d .home3d-tools button{font-size:16px;padding:11px 13px}
+.home3d .home3d-instruction{grid-template-columns:minmax(0,1fr) auto;padding:13px 26px 12px;gap:5px 22px}
+.home3d .home3d-instruction-title{gap:16px}.home3d .home3d-instruction-title small{font-size:15px}.home3d .home3d-instruction-title h2{font-size:17px}
+.home3d .home3d-instruction .home3d-command{font-size:30px}
+.home3d .home3d-inline-actions{grid-column:2;grid-row:1/4;gap:9px;justify-content:normal}
+.home3d .home3d-inline-actions button{min-height:48px;font-size:19px;padding:12px 18px}
+.home3d .home3d-instruction .home3d-feedback{font-size:16px}
+.home3d .home3d-body{display:flex}.home3d .home3d-scene{min-height:0}
+.home3d .home3d-task{width:310px;max-height:none;padding:22px}
+.home3d .home3d-hotspot{width:46px;height:46px}
+.home3d .home3d-planning{bottom:38px;gap:12px;padding:9px}
+.home3d .home3d-planning button{font-size:20px;padding:12px 18px}
+.home3d .home3d-tip{font-size:14px;bottom:4px}
+/* One instruction, large landmarks, and direct room controls for the elder-facing view. */
+.home3d .home3d-room-label{font-size:25px;font-weight:750;line-height:1.2;padding:10px 16px;border-radius:13px;background:#fffdf5f5;color:#304e40;border:1px solid #c6d1c1;box-shadow:0 2px 7px #263e3514}
+.home3d .home3d-start-label{font-size:27px;background:#dc7d2d;color:#fff;border:3px solid #fff6e9;box-shadow:0 0 0 5px #dc7d2d35;z-index:3}
+.home3d .home3d-destination-label{font-size:27px;background:#e9f1df;border:3px solid #68895c;color:#29452c;z-index:2}
+.home3d .home3d-hotspot{width:auto;min-width:58px;height:58px;padding:0 12px;border:3px solid #fff!important;font-size:22px!important;font-weight:700;box-shadow:0 3px 14px #223a3435}
+.home3d-hotspot.hinted{animation:home-target-pulse 1.3s ease-in-out infinite;background:#edb67d;color:#3c3529}
+@keyframes home-target-pulse{50%{box-shadow:0 0 0 14px #e59c4c45}}
+.home3d .home3d-move{position:absolute;right:20px;bottom:32px;display:grid;grid-template-columns:repeat(3,72px);grid-template-rows:60px 60px;gap:7px;padding:10px;border-radius:20px;background:#fffdf2e8;box-shadow:0 4px 20px #263e3526;z-index:3}
+.home3d-move button{border-radius:14px;background:#e7eddf;color:#345e50;font-size:22px;min-height:60px;font-weight:700}
+.home3d-move [data-move=forward]{grid-column:2}.home3d-move [data-move=left]{grid-column:1;grid-row:2}.home3d-move [data-move=back]{grid-column:2;grid-row:2}.home3d-move [data-move=right]{grid-column:3;grid-row:2}
+.home3d .home3d-instruction .home3d-command{font-size:34px;line-height:1.35}
+.home3d .home3d-instruction .home3d-feedback{font-size:21px;line-height:1.4;min-height:30px;color:#49634f}
+.home3d .home3d-inline-actions button{font-size:23px;min-height:58px}
+.home3d .home3d-popup{bottom:35px;left:40%;padding:22px;width:380px}
+.home3d .home3d-popup h3{font-size:27px}.home3d .home3d-popup p{font-size:22px}.home3d .home3d-popup button{font-size:24px;min-height:56px}
+.home3d .home3d-popup .remote-shape{width:190px}.home3d .home3d-popup .remote-shape button{font-size:22px;min-height:60px;height:auto}
+.home3d .home3d-popup .remote-pad{display:none}
+.home3d .home3d-tools [data-view=explore]{display:none}
+.home3d .home3d-tools [data-view=top]{display:none}
+.home3d .home3d-tip{font-size:20px;color:#405f4b;left:20px;right:auto;text-align:left;padding:7px 13px;background:#fffdf0d9;border-radius:10px;bottom:4px}
+.home3d .home3d-planning{bottom:56px}.home3d .home3d-planning button{font-size:26px;min-height:64px;padding:14px 28px}
+.home3d .home3d-task select{font-size:24px;padding:17px 12px}.home3d .home3d-records p{font-size:20px}
+.home3d .hg-teaching{position:absolute;inset:72px 0 0;z-index:30;background:#f9f7eef7;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:30px 330px 30px 38px}
+.hg-choice{max-width:800px;text-align:center}.hg-choice h2{font-size:40px;margin:0 0 20px}.hg-choice p{font-size:26px;color:#617969}.hg-choice>div{display:flex;gap:24px}.hg-choice button{width:340px;padding:32px 22px;background:#345e50;color:white;border-radius:24px;font-size:34px;min-height:150px}.hg-choice button span{display:block;font-size:22px;font-weight:400;margin-top:14px;line-height:1.5}
+.home3d .hg-teaching:has(.hg-choice){padding:30px}
+.hg-lesson{width:100%;max-width:920px}.hg-lesson header{display:flex;justify-content:space-between;align-items:center;font-size:23px;color:#66806c}.hg-lesson h2{font-size:42px;margin:20px 0 14px;line-height:1.3}.hg-lesson-copy{font-size:29px;line-height:1.5;margin:12px 0}.hg-practice-feedback{font-size:24px;color:#b06428;min-height:70px;line-height:1.5}.hg-lesson button{font-size:22px;padding:16px 22px;background:#e4ecdf;color:#345e50;border-radius:14px;min-height:56px}.hg-lesson footer{display:flex;gap:12px;flex-wrap:wrap}.hg-lesson [data-next]{background:#345e50;color:white}.hg-demo{display:flex;justify-content:center;gap:60px;align-items:center;height:240px;background:#e9efdf;border-radius:25px}.hg-demo svg{width:150px;height:190px}.hg-demo svg:nth-child(2){transform:scaleX(-1)}.hg-demo.grab svg{animation:hg-grab 2.8s ease-in-out infinite}.hg-demo.carry svg{animation:hg-lift 3s ease-in-out infinite}.hg-demo.pour svg:last-child{animation:hg-tilt 3s ease-in-out infinite}
+@keyframes hg-grab{50%{transform:translateY(-25px) scale(.92)}}@keyframes hg-lift{50%{translate:0 -28px}}@keyframes hg-tilt{50%{rotate:-40deg}}
+.home3d .hg-camera{position:absolute;right:18px;top:260px;width:270px;z-index:31;border:1px solid #c9d7c6;border-radius:20px;background:#fffdf6f5;padding:12px;box-shadow:0 6px 24px #345e501a}.hg-preview{position:relative;width:100%;aspect-ratio:4/3;background:#e6ecdf;border-radius:13px;overflow:hidden}.hg-preview video,.hg-preview canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hg-preview video{transform:scaleX(-1)}.hg-camera p{font-size:20px;line-height:1.4;margin:12px 0;color:#45644e;min-height:56px}.hg-camera>div:last-child{display:flex;gap:7px;flex-wrap:wrap}.hg-camera button{padding:10px;background:#e8efdf;color:#345e50;border-radius:11px;font-size:17px;min-height:44px}.hg-camera [data-camera]{width:100%;font-size:22px;background:#345e50;color:white}.hg-pointer{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%);border:4px solid white;border-radius:50%;background:#d17a36b0;box-shadow:0 0 0 5px #d17a3655;z-index:29;pointer-events:none}.hg-hover{outline:5px solid #e1a15e!important;outline-offset:5px}.home3d.home-gesture-enabled .home3d-move{display:none!important}
+.hg-demo.thumb svg:last-child{transform:rotate(180deg)}
+.hg-demo.look svg{animation:hg-look 3s ease-in-out infinite}@keyframes hg-look{50%{translate:35px 0}}
+/* 5.0 — a hand-held control instead of a menu-driven remote. */
+.home5-badge{display:inline-block;font-size:16px;vertical-align:middle;margin-left:7px;padding:5px 10px;border-radius:20px;background:#e3ece1;color:#496b58}
+.home3d .home3d-tools button{font-size:15px;padding:11px 10px}
+.home5-eyebrow{display:inline-block;padding:8px 18px;border-radius:22px;background:#e5ecdf;color:#496c57;font-size:23px;margin-bottom:17px}
+.home3d .hg-choice h2{font-size:40px;line-height:1.4}
+.home3d .hg-choice .home5-try{margin-top:22px;min-height:58px;padding:15px 25px;width:auto;background:#eee5d8;color:#68513b;font-size:24px;border:1px solid #d9c9b4}
+.home5-remote{position:absolute;z-index:6;transform:translate(-50%,-50%);pointer-events:none;display:grid;justify-items:center}
+.home5-control{pointer-events:auto;width:68px;height:68px;padding:0;border:3px solid #fff9eb!important;outline:6px solid #d7884c50;background:#b45233e8;border-radius:50%;color:white;box-shadow:0 3px 15px #342a2430;display:grid;place-items:center}
+.home5-control span{font-size:36px;line-height:1}
+.home5-control-label{position:absolute;top:78px;white-space:nowrap;padding:7px 14px;font-size:23px;font-weight:700;color:#354f41;background:#fffbedee;border-radius:13px}
+.home3d .home5-release{position:absolute;right:24px;bottom:60px;z-index:6;padding:17px 25px;font-size:24px;color:#3e5f4b;background:#fffbed;border:2px solid #bacbb8;border-radius:16px;min-height:64px}
+.home5-remote-status{position:absolute;left:24px;bottom:64px;max-width:650px;padding:14px 22px;background:#fffbeded;color:#345442;font-size:26px;font-weight:700;border-radius:18px;z-index:5;margin:0;pointer-events:none}
+.home3d .home5-thumb-demo{width:230px;height:230px}
+.demo-thumb{transform-origin:92px 132px;animation:home5-thumb 2.5s ease-in-out infinite}.demo-power{animation:home5-key 2.5s ease-in-out infinite}
+@keyframes home5-thumb{0%,25%,100%{transform:rotate(-12deg) translateY(-5px)}55%,75%{transform:rotate(1deg) translateY(5px)}}
+@keyframes home5-key{55%,75%{fill:#9a472e}}
+.home3d.home-gesture-enabled:not(:has(.hg-teaching:not([hidden]))) .hg-camera{top:245px;width:228px;right:18px;padding:10px}
+.home3d.home-gesture-enabled:not(:has(.hg-teaching:not([hidden]))) .hg-camera p{font-size:19px;min-height:50px}
+.home3d.home-gesture-enabled .home3d-hotspot.hg-hover{background:#f6cf99}
+@media(prefers-reduced-motion:reduce){.demo-thumb,.demo-power{animation:none}}
+.home3d.home5-holding-remote .home3d-move,.home3d.home5-holding-remote .home3d-tip{display:none!important}
+.home5-remote.swing .home5-control{background:#4d7b67e8;outline-color:#749c7b55}
+.home3d.home-gesture-enabled .home5-control,.home3d.home5-pressing .home5-control{background:transparent;outline:none;box-shadow:none;border-color:#edaa6b!important}
+.home3d.home-gesture-enabled .home5-control span,.home3d.home5-pressing .home5-control span{visibility:hidden}

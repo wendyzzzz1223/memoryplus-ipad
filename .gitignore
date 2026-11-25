@@ -1,0 +1,12 @@
+# Local and generated files
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+*.zip
+__pycache__/
+.env
+.env.*
+!.env.example
+.openai/
+.sites-runtime/
