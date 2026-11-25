@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>忆家 · 手势训练 5.0</title>
+<link rel="stylesheet" href="studio.css">
+</head>
+<body>
+<div class="site">
+  <header class="mast">
+    <button id="home" class="brand" aria-label="忆家，回到游戏选择"><span>忆</span>忆家</button>
+    <div class="mast-title">麻将手势训练 <small>5.0</small></div>
+    <span class="camera-mode" id="mode">鼠标模式</span>
+  </header>
+  <main class="layout">
+      <div class="view" id="view">
+        <video id="video" autoplay muted playsinline aria-label="镜像摄像头画面"></video>
+      </div>
+
+    <div class="hand-overlay" aria-hidden="true"><canvas id="landmarks" width="1280" height="960"></canvas></div>
+    <section id="game" class="game" aria-label="游戏区"></section>
+    <aside class="panel" aria-label="手势控制">
+      <p class="camera-note" id="camera-status" role="status">开启后，把一只手完整放进镜头。</p>
+      <div class="meter" id="meter" hidden><div></div></div>
+      <button id="camera" class="button primary">开启摄像头</button>
+    </aside>
+  </main>
+  <footer>忆家 <span>家庭认知训练 · 交互原型</span></footer>
+</div>
+<div id="pointer" aria-hidden="true"></div>
+<script type="module" src="ipad-layout.js"></script>
+<script type="module" src="studio.js"></script>
+</body>
+</html>
