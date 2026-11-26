@@ -223,6 +223,7 @@ function render(focus=true) {
   const body = login ? onboardingPage(page) : (Object.hasOwn(pages,page) ? pages[page] : home)(param);
   app.innerHTML=`<div class="shell ${page==='room'?'room-page':''}" data-font="${esc(state.font)}"><main class="main" tabindex="-1">${body}</main>${login?'':nav(page)}</div>`;
   document.title=(app.querySelector('h1')?.textContent||'子女端')+' · 忆家';
+  window.FamilyLanguage?.mount(page,null);
   if(focus) { window.scrollTo(0,0); app.querySelector('main').focus({preventScroll:true}); }
 }
 async function photoData(file) {
@@ -246,8 +247,8 @@ function playVoice(i) {
   }
   if(i<2) { toast('请先录制一段家人语音'); return; }
   if(!window.speechSynthesis) { toast('当前浏览器不支持语音试听'); return; }
-  const speech=new SpeechSynthesisUtterance('您好，今天也记得留一点时间陪自己做喜欢的事。');
-  speech.lang='zh-CN'; speech.rate=.88; speech.pitch=i===3?.8:1.06;
+  const speech=new SpeechSynthesisUtterance(window.FamilyLanguage?.translate('您好，今天也记得留一点时间陪自己做喜欢的事。')||'您好，今天也记得留一点时间陪自己做喜欢的事。');
+  speech.lang=window.FamilyLanguage?.language==='en'?'en-GB':'zh-CN'; speech.rate=.88; speech.pitch=i===3?.8:1.06;
   speech.onerror=()=>toast('当前设备无法播放中文语音');
   speechSynthesis.cancel(); speechSynthesis.speak(speech);
 }
@@ -300,7 +301,7 @@ document.addEventListener('click',(e)=>{
   if(action==='resend'){if(!inviteCode){go('invite');return;}toast('演示邀请码 '+inviteCode);return;}
   if(action==='close')return dialog.close();
   if(action.startsWith('line-')){const i=+action.slice(5);showLines[i]=!showLines[i];render(false);app.querySelector(`[data-action="${action}"]`).focus();return;}
-  if(action.startsWith('template-')){const field=app.querySelector('[name=text]');field.value=templateText[+action.slice(9)];field.focus();return;}
+  if(action.startsWith('template-')){const field=app.querySelector('[name=text]');field.value=window.FamilyLanguage?.translate(templateText[+action.slice(9)])||templateText[+action.slice(9)];field.focus();return;}
   if(action==='edit-meds'){editingMedicine=!editingMedicine;render(false);return;}
   if(action.startsWith('delete-med-')){const medicineId=action.slice(11);if(confirm('删除该药品？')&&saveElderList('meds',medicines().filter(m=>m.id!==medicineId)))render(false);return;}
   if(action==='add-time'){const group=app.querySelector('.times');group.insertAdjacentHTML('beforeend',timeInput('12:00'));group.lastElementChild.querySelector('input').focus();return;}

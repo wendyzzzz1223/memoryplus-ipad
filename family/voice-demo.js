@@ -23,8 +23,8 @@ function voiceDemoPreview(i) {
     return;
   }
   speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(voiceDemoSample);
-  utterance.lang = 'zh-CN'; utterance.rate = .88; utterance.pitch = i === 1 || i === 3 ? .85 : 1.05;
+  const utterance = new SpeechSynthesisUtterance(window.FamilyLanguage?.translate(voiceDemoSample)||voiceDemoSample);
+  utterance.lang = window.FamilyLanguage?.language==='en'?'en-GB':'zh-CN'; utterance.rate = .88; utterance.pitch = i === 1 || i === 3 ? .85 : 1.05;
   utterance.onerror = event => {if (!['canceled', 'interrupted'].includes(event.error)) toast('当前设备没有可用的中文语音。');};
   speechSynthesis.speak(utterance);
   toast(i < 2 ? '正在播放系统语音示例，并非录制或复刻的声音。' : '正在播放系统语音示例。');

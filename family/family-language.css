@@ -1,0 +1,47 @@
+.family-language-switch{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:9px 14px;border:1px solid #e7d5c5;border-radius:999px;background:#fffaf3;color:#41695d;font:600 16px/1.2 inherit;touch-action:pan-y;box-sizing:border-box;isolation:isolate}
+.family-language-switch svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;flex:none}
+.family-language-switch button{border:0;padding:3px 0;background:transparent;color:inherit;font:600 16px/1.2 "Alibaba PuHuiTi","PingFang SC",sans-serif;cursor:pointer;white-space:nowrap}
+.family-language-switch button[data-language][aria-pressed=false]{opacity:.72}
+.family-language-switch button.family-language-track{display:block;position:relative;width:58px;height:32px;padding:0;flex:none;border-radius:999px;background:#88aaa0}
+.family-language-track span{position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:white;transition:transform .2s}
+.family-language-switch[data-language=en] .family-language-track span{transform:translateX(26px)}
+.family-language-switch button:focus-visible{outline:3px solid #ed9462;outline-offset:3px}
+.family-home-with-language>.family-language-switch{position:absolute;z-index:5;right:24px;top:54px}
+.family-home-content{position:absolute;top:60px;left:0;width:517px;height:1322px}
+html[lang=en] .figma-stage p{white-space:normal;overflow-wrap:normal;word-break:normal;line-height:1.3;min-width:0}
+html[lang=en] .figma-stage [data-name="tab-bar"] p{font-size:16px!important;line-height:1.2;white-space:normal;max-width:96px}
+html[lang=en] .figma-viewport[data-page=home] [data-name="elder-banner"] [data-name="Frame"]{min-width:0}
+html[lang=en] .figma-viewport[data-page=home] [data-name="status-badge"]{padding:8px 10px!important;white-space:nowrap}
+html[lang=en] .figma-viewport[data-page=home] [data-node-id="113:6783"]{font-size:20px;line-height:1.2}
+html[lang=en] .figma-viewport[data-page=home] [data-node-id="113:6784"]{font-size:14px;line-height:1.3}
+html[lang=en] .figma-viewport[data-page=home] [data-node-id="113:6791"]{font-size:16px;line-height:1.3;white-space:normal}
+html[lang=en] .figma-viewport[data-page=home] [data-name^="card-"]{min-height:100px}
+html[lang=en] .figma-viewport[data-page=home] [data-name^="card-"]>p:first-child{font-size:16px!important;line-height:1.2;white-space:normal;height:auto}
+html[lang=en] .figma-viewport[data-page=home] [data-name="title"]{min-width:0}
+html[lang=en] .figma-viewport[data-page=home] [data-name="header"]>p{font-size:14px}
+html[lang=en] .figma-viewport[data-page=home] [data-name="title"]>p{font-size:20px;line-height:1.2}
+html[lang=en] .figma-viewport[data-page=home] [data-name="content-block"]{min-width:0}
+html[lang=en] .figma-viewport[data-page=home] [data-name="content-block"] p{white-space:normal;line-height:1.3;height:auto}
+html[lang=en] .voice-intro h2{font-size:23px;line-height:1.25}
+html[lang=en] .voice-choice-heading h2{font-size:21px;line-height:1.2}
+html[lang=en] .voice-choice-actions{flex-wrap:wrap}
+html[lang=en] .voice-choice-actions button{font-size:16px;white-space:normal;min-height:46px;line-height:1.25}
+html[lang=en] .voice-dialog-detail,html[lang=en] .voice-demo-footnote{line-height:1.4}
+html[lang=en] .voice-stepper{font-size:14px}
+@media(prefers-reduced-motion:reduce){.family-language-track span{transition:none}}
+
+html[lang=en] .figma-stage p.f125{width:auto!important;align-self:stretch}
+html[lang=en] .figma-viewport[data-page=home] [data-node-id="113:6815"]{font-size:32px!important;line-height:1.2}
+html[lang=en] .figma-viewport[data-page=me] [data-node-id="113:7455"]{width:100%!important;align-self:stretch;line-height:1.4}
+html[lang=en] .figma-viewport[data-page=me] [data-node-id="113:7440"]{font-size:14px;max-width:130px;white-space:normal}
+html[lang=en] .figma-viewport[data-page=me] [data-node-id="113:7438"]{font-size:18px}
+html[lang=en] .figma-viewport[data-page=me] [data-node-id="113:7453"]{height:auto!important;min-height:150px}
+
+html[lang=en] .figma-viewport[data-page=trend] [data-name="header-meta"]{gap:12px;align-items:center}
+html[lang=en] .figma-viewport[data-page=trend] [data-name="title-group"]{flex:1;min-width:0;width:auto}
+html[lang=en] .figma-viewport[data-page=trend] [data-name="title-group"] p:first-child{font-size:24px;line-height:1.2;white-space:normal}
+html[lang=en] .figma-viewport[data-page=trend] [data-name="patient-badge"]{max-width:145px;padding:7px 10px}
+html[lang=en] .figma-viewport[data-page=trend] [data-name="patient-badge"] p{font-size:14px;line-height:1.25;white-space:normal}
+html[lang=en] .figma-viewport[data-page=messages] [data-node-id="113:7160"]{width:100%;min-width:0;padding:8px 14px;height:auto}
+html[lang=en] .figma-viewport[data-page=messages] [data-node-id="113:7161"]{width:100%;min-width:0;white-space:normal;line-height:1.35}
+html[lang=en] .figma-viewport.landscape [data-name="Text Badge"] p{font-size:21px;line-height:1.1;white-space:nowrap}

@@ -82,6 +82,7 @@ function renderDesign(page,param,focus) {
     }
   }
   decorateDesign(page,param);
+  window.FamilyLanguage?.mount(page,designRoot);
   if(focus){window.scrollTo(0,0);app.querySelector('main').focus({preventScroll:true});}
   return true;
 }
@@ -332,8 +333,8 @@ function writeDesignMessage() {
 }
 function speakExample() {
   if(!window.speechSynthesis){toast('当前浏览器不支持语音试听');return;}
-  const utterance=new SpeechSynthesisUtterance('我今天已经完成训练啦，晚点一起看看相册。');
-  utterance.lang='zh-CN';utterance.rate=.88;speechSynthesis.cancel();speechSynthesis.speak(utterance);
+  const utterance=new SpeechSynthesisUtterance(window.FamilyLanguage?.translate('我今天已经完成训练啦，晚点一起看看相册。')||'我今天已经完成训练啦，晚点一起看看相册。');
+  utterance.lang=window.FamilyLanguage?.language==='en'?'en-GB':'zh-CN';utterance.rate=.88;speechSynthesis.cancel();speechSynthesis.speak(utterance);
 }
 function handleDesign(key,el) {
   const page=currentRoute();
@@ -410,7 +411,7 @@ function handleDesign(key,el) {
   if(key==='record-story'){record('story');return;}
   if(key==='save-story'){
     if(!queuedPhoto){toast('请先上传照片');return;}
-    const people=[...designRoot.querySelectorAll('[data-v2^=story-person][data-on=true]')].map(e=>e.textContent.trim());
+    const people=[...designRoot.querySelectorAll('[data-v2^=story-person][data-on=true]')].map(e=>window.FamilyLanguage?.sourceText(e)||e.textContent.trim());
     const photo={src:queuedPhoto,title:val('place')||'照片故事',date:val('date'),place:val('place'),story:val('story'),people,voice:state.recordings?.story};
     if(save({photos:[...state.photos,photo]})){queuedPhoto='';go('album');toast('照片故事已保存在本机');}return;
   }
@@ -460,7 +461,7 @@ function handleDesign(key,el) {
     if(saveElderList('meds',param?list.map(item=>item.id===param?m:item):[...list,m])){go('meds');toast('药品已保存');}return;
   }
   if(key.startsWith('v2-template-')){
-    const field=designRoot.querySelector('[name="v2-message"]');field.value=templateText[+key.slice(12)];field.focus();return;
+    const field=designRoot.querySelector('[name="v2-message"]');field.value=window.FamilyLanguage?.translate(templateText[+key.slice(12)])||templateText[+key.slice(12)];field.focus();return;
   }
   if(key==='send-message'){writeDesignMessage();return;}
   if(key==='example-voice'){speakExample();return;}
