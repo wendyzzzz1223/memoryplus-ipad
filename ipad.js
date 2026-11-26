@@ -1,11 +1,11 @@
-import {initLocalization,createLanguageSwitch,getLanguage,translate,applyLanguage} from './i18n.js?v=granddaughter-5-4';
-import {openGestureTraining,availableGames} from './training-input.js';
-import {setTypeScale, showTypeSettings} from './type-layout.js';
-import {ad8,tasks,referral} from './assessment.js';
-import {screens} from './screens.js?v=granddaughter-5-4';
-import {identity,turnTile,tileUpright,cssMatrix,nextTileTurn,tileFace} from './interaction.js';
+import {initLocalization,createLanguageSwitch,getLanguage,translate,applyLanguage} from './i18n.js?v=5-5';
+import {openGestureTraining,availableGames} from './training-input.js?v=5-5';
+import {setTypeScale, showTypeSettings} from './type-layout.js?v=5-5';
+import {ad8,tasks,referral} from './assessment.js?v=5-5';
+import {screens} from './screens.js?v=5-5';
+import {identity,turnTile,tileUpright,cssMatrix,nextTileTurn,tileFace} from './interaction.js?v=5-5';
 
-import {decorate, familyMatch, familyActivity, trendControls} from './v2.js?v=report-layout-5';
+import {decorate, familyMatch, familyActivity, trendControls} from './v2.js?v=5-5';
 
 const preferences={input:localStorage.getItem('yijia-training-input')==='gesture'?'gesture':'click',mode:localStorage.getItem('yijia-mode')||'medical',font:localStorage.getItem('yijia-font')||'大号',rate:Number(localStorage.getItem('yijia-rate')||.82),volume:Number(localStorage.getItem('yijia-volume')||1)};
 const immersive={'111:100':'111:154','111:207':'111:1006','111:671':'111:1045','111:1632':'112:54','111:2878':'112:120'};
@@ -184,13 +184,23 @@ function back(game){
  action(backButton,()=>go('training'),'返回');
  const header=backButton?.closest('[data-name="top-bar"],[data-name="顶栏"],[data-name="沉浸式顶栏"]');
  if(!header||!trainingRules[game])return;
- addSpeechButton(header,'listen-rules','听规则',trainingRules[game]);
+ header.classList.add('training-game-header');
+ const oldLeft=backButton.parentElement;
+ const title=oldLeft.querySelector('p');
+ const oldMeta=header.querySelector('[data-name="top-right"]');
+ const metadata=oldMeta?[...oldMeta.children]:[...header.children].filter(node=>node!==backButton&&node!==title);
+ const left=document.createElement('div');left.className='training-game-heading';left.dataset.name='top-left';
+ const meta=document.createElement('div');meta.className='training-game-meta';meta.dataset.name='top-right';
+ left.append(backButton);if(title)left.append(title);meta.append(...metadata);
+ header.replaceChildren(left,meta);
+ addSpeechButton(left,'listen-rules','听规则',trainingRules[game]);
 }
 function addSpeechButton(parent,className,label,text){
  const button=document.createElement('button');
  button.type='button';
  button.className=className;
  button.dataset.speechLabel=label;
+ button.setAttribute('aria-label',label);button.title=label;
  button.setAttribute('aria-pressed','false');
  button.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 4a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12"/></svg><span></span>';
  button.querySelector('span').textContent=label;
@@ -257,10 +267,15 @@ function go(key){
    const preview=document.createElement('div');preview.className='training-preview';
    preview.setAttribute('inert','');preview.setAttribute('aria-hidden','true');
    area.classList.add('training-preview-area');area.replaceChildren(preview);
-   previews.push([preview,examples[index]]);
+   previews.push([preview,examples[index],key]);
   });
   const updatePreviews=()=>{
-   for(const [preview,id] of previews){
+   for(const [preview,id,key] of previews){
+    if(preferences.input==='gesture'&&['sort','trace','rotate'].includes(key)){
+     preview.className='training-preview gesture-photo-preview';
+     preview.innerHTML='<img src="./assets/gesture-'+key+'-example'+(getLanguage()==='en'&&['sort','rotate'].includes(key)?'-en':'')+'.png" alt="'+translate('手势示范')+'">';continue;
+    }
+    preview.classList.remove('gesture-photo-preview');
     preview.classList.toggle('preview-immersive',control.checked);
     preview.innerHTML=screenMarkup(control.checked?(immersive[id]??id):id);
     preview.querySelectorAll('[data-node-id]').forEach(n=>n.removeAttribute('data-node-id'));
@@ -287,6 +302,10 @@ function go(key){
     inputControl.checked=isGesture;selector.querySelectorAll('[data-method]').forEach(label=>label.classList.toggle('selected',label.dataset.method===preferences.input));
     const visible=availableGames(preferences.input).map(key=>trainingCards.get(key)).filter(Boolean);cards?.replaceChildren(...visible);
     mode.hidden=isGesture;
+    updatePreviews();
+    const numberArea=numberCard.querySelector('.number-training-preview');
+    numberArea.classList.toggle('gesture-photo-preview',isGesture);
+    numberArea.innerHTML=isGesture?'<img src="./assets/gesture-number-example.png" alt="'+translate('手势示范')+'">':'<img src="./gesture/tiles/b7.png" alt="七条麻将牌"><span>比出数字</span>';
     selector.querySelector('.training-input-note').textContent=isGesture?'选择下方项目后，再开启摄像头。可随时改用点击版。':'选择下方项目开始练习，无需摄像头。';
   }
   inputControl.onchange=()=>{preferences.input=inputControl.checked?'gesture':'click';localStorage.setItem('yijia-training-input',preferences.input);updateInput();};
@@ -309,7 +328,7 @@ function go(key){
    homeEntry.onclick=async()=>{
     homeEntry.disabled=true;
     try {
-     const {openHome3D}=await import('./home3d.js');
+     const {openHome3D}=await import('./home3d.js?v=5-5');
      openHome3D(speak);
     } catch {
      dialog('三维家庭暂时没有加载成功，请返回客厅后再试一次。');
@@ -320,7 +339,7 @@ function go(key){
    stage.append(homeEntry);
    const lifeEntry=document.createElement('button');lifeEntry.className='life-action-entry';lifeEntry.setAttribute('aria-label','盆栽，进入生活动作练习');
    lifeEntry.innerHTML='<svg viewBox="0 0 120 95" aria-hidden="true"><path d="M48 59q-7-35 17-49M61 46Q29 37 26 20m36 18q26-25 40-17" fill="none" stroke="#73936f" stroke-width="7" stroke-linecap="round"/><ellipse cx="36" cy="31" rx="12" ry="23" transform="rotate(-50 36 31)" fill="#9bb78d"/><ellipse cx="85" cy="29" rx="12" ry="24" transform="rotate(52 85 29)" fill="#7fa679"/><path d="M30 58h61l-8 31H39Z" fill="#c49a75"/><rect x="26" y="54" width="70" height="11" rx="5" fill="#d8ae85"/></svg><span>生活动作 · 浇花</span>';
-   lifeEntry.onclick=async()=>{lifeEntry.disabled=true;try{const {openLifeActions}=await import('./life-actions.js?v=ipad-live-2');openLifeActions(speak,'water');}catch{dialog('生活动作练习暂时没有加载成功，请再试一次。');}finally{lifeEntry.disabled=false;}};stage.append(lifeEntry);
+   lifeEntry.onclick=async()=>{lifeEntry.disabled=true;try{const {openLifeActions}=await import('./life-actions.js?v=5-5');openLifeActions(speak,'water');}catch{dialog('生活动作练习暂时没有加载成功，请再试一次。');}finally{lifeEntry.disabled=false;}};stage.append(lifeEntry);
 
    action(named('钟表'),()=>go('screening'),'早筛测试');
    action(named('Framed Family Portrait'),()=>{render(pages.family);familyMatch(stage,()=>go('living'),action);},'全家福连连看');
@@ -585,7 +604,7 @@ function find(round){
  questionAudio(target?'请找出所有的'+target+'。':'请找出所有和示例一样的麻将牌。');
  const progress=named('target-text-group')?.querySelector('p:last-child')??all('p').find(x=>x.textContent.includes('已选'));
  let count=0,finished=false;
- const update=()=>{const p=all('p').find(x=>x.textContent.includes('已选'))??progress;if(p)p.textContent='共 '+correct.length+' 张 · 已选 '+count+' 张';};
+ const update=()=>{if(progress)progress.textContent='共 '+correct.length+' 张 · 已选 '+count+' 张';};
  named('confirm-action-button')?.remove();
  tiles.forEach(n=>{
   n.style.borderColor='#ebe6d8';
@@ -650,7 +669,8 @@ function speed(round){
   const inactive=performance.now()-lastClick>=10000;
   tiles.forEach((n,index)=>n.classList.toggle('answer-pulse',(inactive||performance.now()<hintUntil)&&positions[index]===special));
  },complete,timerAnimation);
- const update=()=>{if(points)points.textContent=score+' 分';const header=all('p').find(p=>p.textContent.includes('当前得分'));if(header)header.textContent='当前得分：'+score;};
+ const headerScore=named('top-right')?.querySelector('p:last-child');
+ const update=()=>{if(points)points.textContent=score+' 分';if(headerScore)headerScore.textContent='当前得分：'+score;};
  tiles.forEach((n,index)=>action(n,()=>{
   if(ended||busy)return;
   lastClick=performance.now();hintUntil=0;tiles.forEach(x=>x.classList.remove('answer-pulse'));

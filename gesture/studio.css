@@ -116,3 +116,21 @@ footer{height:40px;padding:12px 3px}
 .guide .guide-art img{max-width:100%;max-height:565px;object-fit:contain}
 .guide .guide-start{padding:8px 270px 20px 25px}
 .number-example svg{background:white}
+
+/* Bilingual labels keep their own rows; demonstration images never replace live tracking. */
+html[lang=en] .mast .brand{font-size:22px;white-space:nowrap}
+html[lang=en] .mast-title{font-size:22px;white-space:nowrap}
+html[lang=en] .embedded-click-mode{font-size:18px;padding:12px 14px;white-space:nowrap}
+html[lang=en] .camera-mode{font-size:15px;white-space:nowrap}
+html[lang=en] .game>.task{padding-left:270px;padding-right:300px;min-height:160px}
+html[lang=en] .camera-live .game>.task{padding:14px 20px;margin-right:278px;margin-left:230px;min-height:0;max-width:750px}
+html[lang=en] .task h2{font-size:30px;line-height:1.2;overflow-wrap:normal}
+html[lang=en] .task p{font-size:20px;line-height:1.35}
+html[lang=en] .message{font-size:23px;line-height:1.35;max-width:calc(100% - 80px);white-space:normal;text-align:center}
+.panel .gesture-example-button{margin-top:10px;min-height:44px;font-size:19px;background:#e7eee4;color:#345e50;border:1px solid #b9caba}
+.gesture-example-dialog{width:min(1150px,94vw);max-height:94vh;border:1px solid #b9caba;border-radius:22px;padding:18px;background:#fffdf5;text-align:center;color:#2b4f42;overflow:auto}
+.gesture-example-dialog::backdrop{background:#1b332cd9}
+.gesture-example-dialog h2{font-size:26px;margin:0 0 12px}
+.gesture-example-dialog img{display:block;width:100%;height:auto;max-height:68vh;object-fit:contain;background:#eff1e9;border-radius:12px}
+.gesture-example-dialog p{font-size:18px;line-height:1.4;margin:12px auto;max-width:820px}
+.gesture-example-dialog>.button{min-width:220px;font-size:22px;min-height:50px}

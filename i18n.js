@@ -1,4 +1,6 @@
-import english from './translations.en.js?v=granddaughter-5-4';
+import {trainingEnglish,translateTraining} from './training-copy.js?v=5-5';
+import english from './translations.en.js?v=5-5';
+Object.assign(english,trainingEnglish);
 const STORAGE_KEY='memoryplus-language';
 let language='zh';
 try {language=localStorage.getItem(STORAGE_KEY)==='en'?'en':'zh';} catch {}
@@ -9,6 +11,8 @@ export function translate(source){
  if(language!=='en'||typeof source!=='string')return source;
  const key=source.replace(/\s+/g,' ').trim();
  if(english[key])return source.replace(source.trim(),english[key]);
+ const training=translateTraining(source,english);
+ if(training!==null)return training;
  const rules=[
   [/^第\s*(\d+)\s*\/\s*(\d+)\s*题$/,(_,a,b)=>`Question ${a} / ${b}`],
   [/^第\s*(\d+)\s*题$/,(_,a)=>`Question ${a}`],

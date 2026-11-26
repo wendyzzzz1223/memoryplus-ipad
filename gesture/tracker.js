@@ -1,4 +1,4 @@
-import {env,InferenceSession,Tensor} from './vendor/cpu/ort.wasm.min.js';
+import {env,InferenceSession,Tensor} from './vendor/cpu/ort.wasm.min.js?v=5-5';
 const asset=name=>new URL('./vendor/cpu/'+name,import.meta.url).href;
 const palmIndices=[0,5,9,13,17,1,2];
 const anchorCenters=[24,12].flatMap((side,i)=>Array.from({length:side*side*(i?6:2)},(_,j)=>{

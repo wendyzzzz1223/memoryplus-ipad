@@ -1,12 +1,12 @@
-import {translate} from './i18n.js?v=granddaughter-5-4';
-import {mountHomeGesture} from './home-gesture.js';
-import {frameScale,planDistance} from './home-layout.js';
-import {createFirstPersonHands} from './home-hands.js';
-import {homeTasks} from './home-tasks.js';
-import {validateRoute,findGuideRoute} from './home-route.js';
-import * as THREE from './vendor/three/three.module.js';
-import {OrbitControls} from './vendor/three/OrbitControls.js';
-import {RoundedBoxGeometry} from './vendor/three/RoundedBoxGeometry.js';
+import {translate} from './i18n.js?v=5-5';
+import {mountHomeGesture} from './home-gesture.js?v=5-5';
+import {frameScale,planDistance} from './home-layout.js?v=5-5';
+import {createFirstPersonHands} from './home-hands.js?v=5-5';
+import {homeTasks} from './home-tasks.js?v=5-5';
+import {validateRoute,findGuideRoute} from './home-route.js?v=5-5';
+import * as THREE from './vendor/three/three.module.js?v=5-5';
+import {OrbitControls} from './vendor/three/OrbitControls.js?v=5-5';
+import {RoundedBoxGeometry} from './vendor/three/RoundedBoxGeometry.js?v=5-5';
 
 export function openHome3D(speak) {
   if (document.querySelector('.home3d')) return;

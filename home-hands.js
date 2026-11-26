@@ -1,4 +1,4 @@
-import * as THREE from './vendor/three/three.module.js';
+import * as THREE from './vendor/three/three.module.js?v=5-5';
 export function createFirstPersonHands(camera){
  const rig=new THREE.Group();camera.add(rig);
  const skin=new THREE.MeshStandardMaterial({color:0xd3aa88,roughness:.8});

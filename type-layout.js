@@ -1,4 +1,4 @@
-import {createLanguageSwitch} from './i18n.js?v=granddaughter-5-4';
+import {createLanguageSwitch} from './i18n.js?v=5-5';
 export function setTypeScale(stage, size) {
  const factor = {标准: .91, 大号: 1, 特大号: 1.09}[size] ?? 1;
  stage.dataset.font = size;

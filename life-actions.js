@@ -1,7 +1,7 @@
-import {activities,handSample,MotionPractice} from './life/motion.js';
-import {sceneArt,paintScene} from './life/art.js?v=ipad-live-2';
-import {trackedJug} from './life/tracked.js';
-import {LifeCamera} from './life/camera.js';
+import {activities,handSample,MotionPractice} from './life/motion.js?v=5-5';
+import {sceneArt,paintScene} from './life/art.js?v=5-5';
+import {trackedJug} from './life/tracked.js?v=5-5';
+import {LifeCamera} from './life/camera.js?v=5-5';
 const bones=[[0,1,2,3,4],[0,5,6,7,8],[5,9,10,11,12],[9,13,14,15,16],[13,17,18,19,20],[17,0]];
 const handIcon='<svg viewBox="0 0 120 130" aria-hidden="true"><ellipse cx="77" cy="47" rx="20" ry="31" fill="none" stroke="#a8ba9d" stroke-width="3" stroke-dasharray="5 5"/><path d="M29 119l-8-33q-7-26 4-41l14-18q8-10 17-3l17 17 12-5q14-6 20 6l8 20q6 18-9 34l-26 22Z" fill="#e5bf9a" stroke="#ad8a69" stroke-width="3"/><path d="M32 61q-7-25 4-29 10-3 16 13l14 23q15 9 7 19-9 9-23-2L33 73m41-24-2 25m18-27-7 29" fill="#e5bf9a" stroke="#ad8a69" stroke-width="3" stroke-linecap="round"/></svg>';
 export function openLifeActions(speak=()=>{},initial=null){

@@ -1,6 +1,7 @@
-import {clamp,gap,readHand,Hold,SteadyPoint,Swipe,identity,turnTile,tileFace,tileUpright,nextTileTurn,cssMatrix,traceResult} from './interaction.js';
-import {Camera} from './camera.js';
-import {paintHandOverlay,videoFrame} from './hand-overlay.js';
+import {initLocalization,translate,getLanguage} from '../i18n.js?v=5-5';
+import {clamp,gap,readHand,Hold,SteadyPoint,Swipe,identity,turnTile,tileFace,tileUpright,nextTileTurn,cssMatrix,traceResult} from './interaction.js?v=5-5';
+import {Camera} from './camera.js?v=5-5';
+import {paintHandOverlay,videoFrame} from './hand-overlay.js?v=5-5';
 
 const params=new URLSearchParams(location.search);const embedded=params.get('embedded')==='1';
 function leaveEmbedded(type='yijia-gesture-exit'){camera.stop();parent.postMessage({type},location.origin);}
@@ -74,7 +75,7 @@ const holds={advance:new Hold(),releaseThumb:new Hold(),hint:new Hold(),grab:new
 const palmFilter=new SteadyPoint(),penFilter=new SteadyPoint(),swipes=new Swipe();
 let mode='menu',index=0,done=false,canThumb=false,roundTime=0,lastHand=-Infinity,grip=null,mouse=null,picked=false,strokes=[],penDown=false,lastPoint=null,lastPenAt=0,lastPointAt=0,matrix=identity(),lastTurn=-Infinity,lastDirection='',lastOpenPalm=-Infinity,answerShown=0,lastThumbUp=false;
 const current=()=>lessons[mode]?.[index];
-function text(el,value){if(el&&el.textContent!==value)el.textContent=value;}
+function text(el,value){const output=translate(value);if(el&&el.textContent!==output)el.textContent=output;}
 function say(value,warning=false){
   const message=$('message');text(message,value);message?.classList.toggle('warn',warning);
 }
@@ -589,3 +590,19 @@ if(embedded){
 } 
 window.addEventListener('pagehide',()=>camera.stop());
 if(embedded&&['sort','trace','turn','number'].includes(params.get('lesson')))select(params.get('lesson'));else render();
+
+const exampleButton=document.createElement('button');
+exampleButton.type='button';exampleButton.className='button gesture-example-button';exampleButton.textContent='看示范';
+camButton.after(exampleButton);
+exampleButton.onclick=()=>{
+ const lesson=mode==='turn'?'rotate':mode==='guide'||mode==='menu'?'number':mode;
+ const dialog=document.createElement('dialog');dialog.className='gesture-example-dialog';
+ const title=document.createElement('h2');title.textContent=translate('手势示范');
+ const photo=document.createElement('img');photo.alt=translate('示范图片');
+ const english=getLanguage()==='en'&&['sort','rotate'].includes(lesson)?'-en':'';
+ photo.src='../assets/gesture-'+lesson+'-example'+english+'.png';
+ const note=document.createElement('p');note.textContent=translate('本图为动作示范，开启摄像头后识别您的真实动作。');
+ const close=document.createElement('button');close.type='button';close.className='button primary';close.textContent=translate('返回练习');close.onclick=()=>dialog.close();
+ dialog.append(title,photo,note,close);dialog.onclose=()=>dialog.remove();document.body.append(dialog);dialog.showModal();
+};
+initLocalization();

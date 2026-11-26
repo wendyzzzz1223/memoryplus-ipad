@@ -1,5 +1,15 @@
 # Memory+ · iPad 5.0
 
+[Open the live demo](https://wendyzzzz1223.github.io/memoryplus-ipad/)
+
+## 5.0.5 update
+
+- Complete English text for training prompts, timers, feedback, rules and gesture controls.
+- Shared training headers keep titles, rule buttons and scores separate. Question audio uses an icon with an accessible label.
+- Supplied grandmother gesture examples, including an updated rotation example against a plain white wall. Live hand tracking remains available.
+- Home Activity padding and weekly report check-in card layout corrected.
+
+
 A home-based cognitive support design prototype with Mahjong-inspired serious games, family reminiscence and camera-based everyday action practice.
 
 面向家庭场景的认知支持交互原型，包含麻将严肃游戏、家庭回忆客厅、生活动作练习，以及中英文界面切换。

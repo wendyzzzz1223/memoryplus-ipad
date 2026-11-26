@@ -24,7 +24,7 @@ export class Camera {
       if(attempt!==this.generation)return;
       loadingModel=true;
       this.notify('loading','正在加载手势识别…');
-      this.modelPromise??=import('./tracker.js').then(m=>m.createDetector()).catch(e=>{this.modelPromise=null;throw e;});
+      this.modelPromise??=import('./tracker.js?v=5-5').then(m=>m.createDetector()).catch(e=>{this.modelPromise=null;throw e;});
       this.model=await this.modelPromise;
       if(attempt!==this.generation)return;
       this.model.reset();

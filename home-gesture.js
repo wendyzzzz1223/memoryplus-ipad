@@ -1,6 +1,6 @@
-import {thumbFlex,ThumbPress} from './home-thumb.js';
-import {readHand} from './gesture/interaction.js';
-import {homeLessons,tilted,practiceMatches,GestureGate} from './home-gesture-logic.js';
+import {thumbFlex,ThumbPress} from './home-thumb.js?v=5-5';
+import {readHand} from './gesture/interaction.js?v=5-5';
+import {homeLessons,tilted,practiceMatches,GestureGate} from './home-gesture-logic.js?v=5-5';
 const bones=[[0,1,2,3,4],[0,5,6,7,8],[5,9,10,11,12],[9,13,14,15,16],[13,17,18,19,20],[17,0]];
 const handIcon=(type='open')=>{
  const paths={
@@ -45,7 +45,7 @@ export function mountHomeGesture(root,api){
    const media=await navigator.mediaDevices.getUserMedia({audio:false,video:{width:{ideal:640},height:{ideal:480},frameRate:{ideal:15,max:20},facingMode:'user'}});
    if(current!==attempt||stopped){media.getTracks().forEach(t=>t.stop());return;}
    stream=media;video.srcObject=media;await video.play();say('正在加载双手识别…');
-   detector??=await import('./gesture/tracker.js').then(m=>m.createDetector());
+   detector??=await import('./gesture/tracker.js?v=5-5').then(m=>m.createDetector());
    if(current!==attempt||stopped){if(stopped)detector?.dispose?.();return;}
    loading=false;panel.querySelector('[data-camera]').textContent='关闭摄像头';say('请把双手放进画面，坐着练习就可以。');
    for(const track of stream.getVideoTracks())track.addEventListener('ended',()=>{if(current===attempt){stopCamera();say('摄像头已断开，可重新开启或改用点击版。');}},{once:true});
