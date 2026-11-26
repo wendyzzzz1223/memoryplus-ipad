@@ -281,9 +281,17 @@ function go(key){
     preview.querySelectorAll('[data-node-id]').forEach(n=>n.removeAttribute('data-node-id'));
    }
   };
-  const numberCard=document.createElement('button');numberCard.type='button';numberCard.className='number-training-card';numberCard.dataset.name='Card-number';
-  numberCard.innerHTML='<div class="number-training-preview"><img src="./gesture/tiles/b7.png" alt="七条麻将牌"><span>比出数字</span></div><div><h2>看牌比数字</h2><p>看看麻将牌，用一只手比出数字</p><span class="training-tag">手眼协调</span></div>';
-  numberCard.onclick=()=>startTraining('number');trainingCards.set('number',numberCard);
+  // Share the rotate card structure so every gesture lesson uses the same layout.
+  const numberCard=trainingCards.get('rotate').cloneNode(true);
+  numberCard.dataset.name='Card-number';
+  numberCard.querySelectorAll('[data-node-id]').forEach(node=>node.removeAttribute('data-node-id'));
+  const numberContent=numberCard.querySelector('[data-name^="Card-Content"]');
+  numberContent.querySelector('[data-name^="Title-Row"] p').textContent='看牌比数字';
+  numberContent.querySelector(':scope > div:not([data-name]) > p').textContent='看看麻将牌，用一只手比出数字';
+  const numberTag=numberContent.querySelector('[data-name^="tag-"]');
+  numberTag.dataset.name='tag-手眼协调';numberTag.querySelector('p').textContent='手眼协调';
+  numberCard.querySelector('.training-preview').classList.add('number-training-preview','gesture-number-preview');
+  action(numberCard,()=>startTraining('number'),'看牌比数字');trainingCards.set('number',numberCard);
   const selector=document.createElement('section');selector.className='training-input-selector';selector.setAttribute('aria-label','选择训练操作方式');
   selector.innerHTML='<label class="mode-switch training-method-switch"><span class="input-mode-label" data-method="click"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3 3.5 14 3-4 4.5-.5L7 3Z"/><path d="m14 14 3.5 6M3 5l2 1M6 1l1 2M2 10h2"/></svg>点击版</span><input type="checkbox" role="switch" aria-label="切换训练操作方式：点击版或手势版"><span class="mode-track"></span><span class="input-mode-label" data-method="gesture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12V5a1.5 1.5 0 0 1 3 0v6-8a1.5 1.5 0 0 1 3 0v8-6a1.5 1.5 0 0 1 3 0v7-4a1.5 1.5 0 0 1 3 0v7c0 4-2.4 6-6 6h-1c-2.5 0-4-1.5-5.5-3.5L4 13.8a1.5 1.5 0 0 1 2.2-2L8 14"/></svg>手势版</span></label><p class="training-input-note sr" role="status"></p>';
   const inputControl=selector.querySelector('input');

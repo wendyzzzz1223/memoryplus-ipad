@@ -13,9 +13,14 @@ html[lang=en] #stage.home-layout [data-node-id="113:3863"]{left:26px!important;r
 #stage.speed-game .listen-question{top:122px}
 #stage.game [data-name="label-wrapper"] p{white-space:normal!important;max-width:100%;line-height:1.3!important}
 html[lang=en] #stage.game [data-name="label-wrapper"] p{font-size:calc(32px * var(--type-scale,1))!important}
-#stage .gesture-photo-preview{width:100%!important;height:100%!important;min-height:218px;display:grid!important;place-items:center;background:#e8efea!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
-#stage .gesture-photo-preview>img{position:static!important;width:100%!important;height:100%!important;max-height:260px;object-fit:contain!important;transform:none!important;filter:none!important}
+/* One frame and aspect ratio for all four gesture lesson previews. */
+#stage.training-layout[data-training-input="gesture"] [data-name="Cards Grid"]{grid-auto-rows:1fr}
+#stage.training-layout[data-training-input="gesture"] [data-name^="Card-"][role="button"]{min-height:218px;grid-template-columns:44% minmax(0,1fr) 30px}
+#stage .gesture-photo-preview{position:relative!important;width:calc(100% - 16px)!important;height:auto!important;min-height:0!important;aspect-ratio:1482/1062;display:block!important;align-self:center;justify-self:center;background:#fffdf6!important;border:1px solid #e2e6de!important;border-radius:8px!important;box-shadow:none!important;overflow:hidden;box-sizing:border-box}
+#stage .gesture-photo-preview>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;transform:none!important;filter:none!important}
 #stage .gesture-photo-preview>div{display:none!important}
+/* Display the lesson inside the supplied device mockup, excluding its bezel. */
+#stage .gesture-number-preview>img{inset:auto!important;left:-10.15%!important;top:-8.21%!important;max-width:none!important;width:119.65%!important;height:126.44%!important;object-fit:fill!important}
 /* The calendar card is a flexible text column with a fixed icon. */
 #stage [data-node-id="113:5048"],#stage [data-node-id="113:5140"]{box-sizing:border-box;padding:22px 26px!important;gap:12px!important;justify-content:center!important;align-items:stretch!important;min-width:0}
 #stage [data-node-id="113:5049"],#stage [data-node-id="113:5141"]{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:14px!important;width:100%!important;min-width:0!important;height:auto!important}
@@ -27,7 +32,5 @@ html[lang=en] #stage.game [data-name="label-wrapper"] p{font-size:calc(32px * va
 #stage .training-game-heading>[data-name="back-button"],#stage .training-game-heading>[data-name="返回"]{position:relative!important;inset:auto!important;transform:none!important;translate:none!important;width:56px!important;height:44px!important;flex:none!important}
 #stage .training-game-meta>*,#stage .training-game-meta p{position:static!important;inset:auto!important;transform:none!important;translate:none!important;width:auto!important;height:auto!important}
 #stage .training-game-meta>[data-name="局数"]{padding:9px 16px;border-radius:10px}
-#stage.training-layout .number-training-card>div:last-child{padding:18px 16px}
-#stage.training-layout .number-training-card h2{font-size:calc(28px * var(--type-scale,1));line-height:1.2;margin:0 0 12px}
-#stage.training-layout .number-training-card p{font-size:calc(22px * var(--type-scale,1));line-height:1.3;margin:0 0 12px}
-#stage.training-layout .number-training-card .training-tag{font-size:calc(14px * var(--type-scale,1));line-height:1.25;padding:3px 10px}
+
+#stage.training-layout[data-training-input="gesture"] .training-preview-area{grid-template-columns:minmax(0,1fr)!important;justify-content:stretch!important;min-width:0!important}
