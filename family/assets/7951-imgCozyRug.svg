@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="716.209" height="199.304" viewBox="0 0 716.209 199.304" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Cozy Rug">
+<ellipse cx="358.104" cy="99.652" rx="358.104" ry="99.652" fill="#F5ECE5"/>
+<mask id="stroke0_0_55" fill="white">
+<path d="M716.209 99.652C716.209 154.688 555.88 199.304 358.104 199.304C160.329 199.304 0 154.688 0 99.652C0 44.6157 160.329 0 358.104 0C555.88 0 716.209 44.6157 716.209 99.652Z"/>
+</mask>
+<ellipse cx="358.104" cy="99.652" rx="358.104" ry="99.652" stroke-width="5.14333" stroke="#E5DEC9" mask="url(#stroke0_0_55)"/>
+</g>
+</svg>

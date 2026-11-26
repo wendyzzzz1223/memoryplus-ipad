@@ -1,0 +1,42 @@
+.figma-viewport{--canvas-width:517px;--canvas-height:1124px;--canvas-scale:min(1,calc(100vw / var(--canvas-width)));width:min(100%,var(--canvas-width));margin:auto;min-height:100dvh;background:#fdfaf5;position:relative}
+.figma-viewport:focus{outline:none}
+.figma-stage{width:var(--canvas-width);height:var(--canvas-height);zoom:var(--fit,1);color:#454545;font:400 18px/normal "Alibaba PuHuiTi","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;position:relative;isolation:isolate}
+:where(.figma-stage *){box-sizing:border-box;border-width:0}
+.figma-stage p{margin:0;overflow-wrap:normal}
+.figma-stage img{vertical-align:middle}
+.figma-stage [data-action],.figma-stage [data-v2]{cursor:pointer}
+.figma-stage [role=button]:focus-visible{outline:3px solid #e58458;outline-offset:2px}
+.figma-stage input.figma-input,.figma-stage textarea.figma-input{display:block;min-width:0;min-height:0;width:100%;align-self:stretch;flex:1;font:inherit;line-height:inherit;color:#454545;background:transparent;border:0;padding:0;margin:0;resize:none;outline-offset:4px}
+.figma-stage .figma-input::placeholder{color:#7a8c88;opacity:1}
+.figma-stage [data-name="tab-bar"] [role=link]{cursor:pointer}
+.figma-stage [data-name="tab-bar"] [role=link]:focus-visible{outline:3px solid #e58458}
+.figma-stage [data-on=true]{background:#e2f4f2!important;border-color:#208a83!important}
+.figma-stage [data-on=false][data-name="relation-card"]{background:white!important;border-color:#e2f4f2!important}
+.figma-stage [data-on=false][data-name="relation-card"] p,.figma-stage [data-on=false][data-v2^="gender"] p{color:#454545!important}
+.figma-stage [data-on=false][data-v2^="gender"]{background:white!important;border-color:#e2f4f2!important}
+.figma-stage [data-name="invite-method"][aria-pressed=true]{outline:2px solid #208a83}
+.figma-stage [data-v2="agreement"][aria-checked=false] img{opacity:0}
+.figma-stage [data-v2="agreement"]{outline:1px solid #208a83}
+.figma-stage [data-v2="portrait-open"]:hover{filter:brightness(1.09) drop-shadow(0 0 14px #ffd49a)}
+.figma-stage [data-v2="portrait-open"]:active,.figma-stage [data-v2="room-album"]:active{scale:1.025}
+.figma-stage [data-v2^="legend"][aria-pressed=false]{opacity:.35}
+.figma-viewport.landscape{--canvas-width:1124px;--canvas-height:517px;min-height:0}
+.landscape .figma-stage>div{width:517px;height:1124px;transform-origin:0 0;transform:translateY(517px) rotate(-90deg)}
+.figma-stage [data-motion-for="113:7966"],.figma-stage [data-motion-for="113:8043"]{animation:medicine-nudge 2s infinite}
+@keyframes medicine-nudge{0%,42%,100%{scale:1}7.5%{scale:1.15}15%{scale:1}22.5%{scale:1.1}}
+@media(prefers-reduced-motion:reduce){.figma-stage [data-motion-for]{animation:none}}
+.figma-extras{padding:14px 18px;text-align:center;background:#fdfaf5}
+.figma-extras .button{margin:0}
+.figma-extras p{margin-top:5px;font-size:.75rem;color:#607875}
+.figma-stage [data-added]{margin-top:12px}
+.figma-stage [data-v2="send-message"]{min-height:44px}
+.figma-stage [data-switch]{position:relative}
+.figma-stage [data-switch]::after{content:"";position:absolute;inset:0;border-radius:999px;background:radial-gradient(circle at 71% 50%,white 0 37%,transparent 39%) #4f8f83}
+.figma-stage [data-switch=false]::after{background:radial-gradient(circle at 29% 50%,white 0 37%,transparent 39%) #e2ebe8}
+.figma-stage [data-v2^="unit-"][data-on=false],.figma-stage [data-v2^="frequency-"][data-on=false]{background:white!important;border-color:#e2f4f2!important}
+.figma-stage .gallery button img{aspect-ratio:1.4;object-fit:cover}
+.figma-stage [data-name="time-list"] .figma-input{flex:0 1 140px}
+.figma-stage [data-name="bottom-navigation-panel"],.figma-stage [data-name="tab-bar"]{z-index:4}
+.figma-stage [data-v2="portrait-open"],.figma-stage [data-v2="room-album"]{transition:filter .2s ease,scale .2s ease}
+.figma-stage [data-name="tab-bar"] [data-v2]{pointer-events:auto}
+.landscape .figma-stage{overflow:hidden}
