@@ -5,7 +5,7 @@ import {ad8,tasks,referral} from './assessment.js?v=5-5';
 import {screens} from './screens.js?v=5-5';
 import {identity,turnTile,tileUpright,cssMatrix,nextTileTurn,tileFace} from './interaction.js?v=5-5';
 
-import {decorate, familyMatch, familyActivity, trendControls} from './v2.js?v=5-5';
+import {decorate, familyMatch, familyActivity, trendControls} from './v2.js?v=5-7';
 
 const preferences={input:localStorage.getItem('yijia-training-input')==='gesture'?'gesture':'click',mode:localStorage.getItem('yijia-mode')||'medical',font:localStorage.getItem('yijia-font')||'大号',rate:Number(localStorage.getItem('yijia-rate')||.82),volume:Number(localStorage.getItem('yijia-volume')||1)};
 const immersive={'111:100':'111:154','111:207':'111:1006','111:671':'111:1045','111:1632':'112:54','111:2878':'112:120'};
@@ -37,7 +37,7 @@ const nav=['首页','训练','家庭客厅','看变化','我的'];
 const q=s=>stage.querySelector(s);
 const all=s=>[...stage.querySelectorAll(s)];
 const named=n=>q('[data-name="'+n+'"]');
-let height=1024,timers=[],scale=1,stopLayout=()=>{},stopGesture=()=>{};
+let height=1024,timers=[],scale=1,stopLayout=()=>{},stopGesture=()=>{},stopAlbumAudio=()=>{};
 const time=(fn,ms)=>{const id=setTimeout(fn,ms);timers.push(id);return id;};
 const interval=(fn,ms)=>{const id=setInterval(fn,ms);timers.push(id);return id;};
 function fit(){
@@ -54,6 +54,7 @@ function screenMarkup(id){
 }
 function render(id){
  if(!screens[id])return false;
+ stopAlbumAudio();stopAlbumAudio=()=>{};
  if(activeSpeech){const current=activeSpeech;window.speechSynthesis?.cancel();current.finish();}
  stopRuleSpeech();
  stopGesture();stopGesture=()=>{};
@@ -368,7 +369,7 @@ function go(key){
   if(key!=='living')toolbar([['返回客厅',dialogBack]]);
  }
  if(key==='album'){
-  textAction('点击按钮，播放家人共同回忆',()=>speak('这是1999年8月6日在北京的全家福。'));
+  installAlbumMemory();
   action(named('record-button'),()=>dialog('试玩版展示语音回忆入口。'),'录制我的回忆');
  }
  if(key==='profile'){
@@ -408,6 +409,42 @@ function go(key){
  if(key==='done'){bind('返回首页','home');bind('看变化','trends');}
  if(['report','album','family','part1','part2','screening'].includes(key))toolbar([['返回',()=>go(key==='album'||key==='family'?'living':'home')]]);
  applyLanguage();
+}
+// A bundled demo recording also works when online speech voices are unavailable.
+function installAlbumMemory(){
+ stage.classList.add('album-layout');
+ const play=q('[data-node-id="113:5317"]'),caption=q('[data-node-id="113:5316"]');
+ if(!play||!caption)return;
+ caption.dataset.noTranslate='';
+ const recording=new Audio(new URL('./assets/family-memory-demo-en.mp3',import.meta.url));
+ recording.preload='metadata';recording.hidden=true;recording.dataset.demoAudio='family-memory';stage.append(recording);let speaking=false;
+ const en=()=>getLanguage()==='en';
+ const update=playing=>{
+  speaking=playing;play.classList.toggle('memory-playing',playing);
+  play.setAttribute('aria-pressed',String(playing));
+  play.setAttribute('aria-label',playing?(en()?'Stop family memory':'停止播放家庭回忆'):(en()?'Play family memory':'播放家庭回忆'));
+  caption.setAttribute('aria-label',play.getAttribute('aria-label'));
+  caption.textContent=playing?(en()?'Playing · tap to stop':'正在播放 · 点击停止'):(en()?'Demo family memory · 14 sec':'模拟家庭回忆 · 点击播放');
+ };
+ const stop=()=>{recording.pause();recording.currentTime=0;if(speaking)window.speechSynthesis?.cancel();update(false);};
+ recording.onended=()=>update(false);
+ recording.onerror=()=>{update(false);feedback(en()?'Audio could not play. Please try again.':'语音未能播放，请再试一次。',3000);};
+ action(play,()=>{
+  if(speaking){stop();return;}
+  if(preferences.volume<=0){feedback('请先在设置中调高音量，再播放留言。',3500);return;}
+  window.speechSynthesis?.cancel();recording.volume=preferences.volume;
+  if(!en()&&window.speechSynthesis&&window.SpeechSynthesisUtterance){
+   const voice=window.speechSynthesis.getVoices().find(v=>/^zh/i.test(v.lang));
+   if(voice){
+    const speech=new SpeechSynthesisUtterance('还记得这一天吗？这是1999年8月6日，我们一起在北京拍的照片。那天大家都笑得很开心。您还记得那次旅行吗？');
+    speech.voice=voice;speech.lang=voice.lang;speech.rate=preferences.rate;speech.volume=preferences.volume;
+    speech.onend=()=>update(false);speech.onerror=()=>update(false);update(true);window.speechSynthesis.speak(speech);return;
+   }
+  }
+  update(true);recording.play().catch(()=>{update(false);feedback(en()?'Please turn on sound and tap again.':'请开启设备声音后，再点击播放。',3500);});
+ },'播放家庭回忆');
+ action(caption,()=>play.click(),'播放家庭回忆');
+ stopAlbumAudio=stop;update(false);
 }
 const surveyAnswers=Array(8),taskAnswers=Array(11);
 function stepHeader(index,total,title){

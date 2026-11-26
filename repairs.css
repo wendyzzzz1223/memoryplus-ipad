@@ -34,3 +34,19 @@ html[lang=en] #stage.game [data-name="label-wrapper"] p{font-size:calc(32px * va
 #stage .training-game-meta>[data-name="局数"]{padding:9px 16px;border-radius:10px}
 
 #stage.training-layout[data-training-input="gesture"] .training-preview-area{grid-template-columns:minmax(0,1fr)!important;justify-content:stretch!important;min-width:0!important}
+
+/* Family match: reserve space for the full English title, roles and instruction. */
+#stage .figma-family-match{padding-top:28px!important;padding-bottom:72px!important;gap:24px!important}
+#stage .figma-family-match [data-name="banner"]{width:660px!important;max-width:100%;height:auto!important;min-height:64px;padding:12px 24px!important}
+#stage .figma-family-match [data-name="banner"] p{width:100%!important;min-width:0;height:auto!important;white-space:normal!important;text-align:center;overflow-wrap:normal;line-height:1.4!important;font-size:calc(28px * var(--type-scale,1))!important}
+#stage .figma-family-match [data-node-id="113:4835"]{transform:scale(.9);transform-origin:top center;margin-bottom:-65.4px}
+#stage .figma-family-match [data-name="col-roles"]{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));width:calc(100% - 128px)!important;height:92px!important;gap:12px!important;flex:none}
+#stage .figma-family-match .match-role{width:auto!important;min-width:0!important;height:92px!important;padding:10px 12px!important;display:grid!important;place-items:center!important}
+#stage .figma-family-match .match-role p{width:100%!important;min-width:0!important;height:auto!important;white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;line-height:1.2!important;text-align:center;font-size:calc(26px * var(--type-scale,1))!important}
+html[lang=en] #stage .figma-family-match .match-role p{font-size:calc(23px * var(--type-scale,1))!important}
+#stage .figma-family-match .match-spot{white-space:normal!important;overflow-wrap:normal;line-height:1.15!important;font-size:calc(16px * var(--type-scale,1))!important;padding:4px 8px!important;min-width:0!important}
+#stage .figma-family-match .match-status{bottom:20px!important;left:80px!important;right:80px!important;width:auto!important;height:auto!important;white-space:normal!important;line-height:1.3!important;font-size:calc(20px * var(--type-scale,1))!important}
+#stage .figma-family-match .match-back{top:24px;left:30px;font-size:20px}
+#stage.album-layout [data-node-id="113:5317"]{cursor:pointer;border-radius:50%}
+#stage.album-layout .memory-playing{outline:4px solid #ee915b!important;outline-offset:5px}
+#stage.album-layout [data-node-id="113:5316"]{white-space:normal!important;line-height:1.25!important;height:auto!important;text-align:center;cursor:pointer}

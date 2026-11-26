@@ -1,3 +1,4 @@
+import {getLanguage} from './i18n.js?v=5-5';
 const byName=(root,name)=>root.querySelector('[data-name="'+name+'"]');
 const byId=(root,id)=>root.querySelector('[data-node-id="'+id+'"]');
 const finePointer=matchMedia('(hover:hover) and (pointer:fine)');
@@ -48,6 +49,7 @@ export function familyActivity(speak){
 }
 export function familyMatch(stage,back,action){
  const root=stage.firstElementChild;root.classList.add('figma-family-match');
+ const copy=(zh,en)=>getLanguage()==='en'?en:zh;
  const photo=byName(stage,'photo-2020');
  const hotspots=[...photo.parentElement.children].filter(n=>n!==photo&&/^113:48(3[7-9]|4[0-2])$/.test(n.dataset.nodeId??''));
  hotspots.forEach(n=>n.classList.add('match-spot'));
@@ -55,17 +57,17 @@ export function familyMatch(stage,back,action){
  const mapping=[5,2,0,3,1,4];
  const result=document.createElement('p');
  result.className='match-status';result.setAttribute('role','status');
- result.textContent='把称呼拖到照片里对应的空位。';
+ result.textContent=copy('把称呼拖到照片里对应的空位。','Drag a family label to its matching space, or tap a space and then a label.');
  const backButton=document.createElement('button');backButton.className='match-back';backButton.textContent='← 返回客厅';backButton.onclick=back;
  root.append(backButton,result);
  let active=-1,matched=0;
  function match(slotIndex,roleIndex){
   const slot=hotspots[slotIndex],role=roles[roleIndex];
   if(!slot||!role||slot.dataset.matched||role.dataset.matched)return;
-  if(mapping[slotIndex]!==roleIndex){result.textContent='再看看，这位家人是谁？';return;}
+  if(mapping[slotIndex]!==roleIndex){result.textContent=copy('再看看，这位家人是谁？','Take another look. Which family member is this?');return;}
   slot.textContent=role.textContent.trim();slot.dataset.matched='true';role.dataset.matched='true';
   slot.classList.remove('focused-spot');active=-1;matched++;
-  result.textContent=matched===6?'全家福配对完成！':'已配对 '+matched+' / 6';
+  result.textContent=matched===6?copy('全家福配对完成！','Family photo match complete!'):copy('已配对 ','Matched ')+matched+' / 6';
  }
  hotspots.forEach((slot,i)=>action(slot,()=>{
   if(slot.dataset.matched)return;
@@ -74,7 +76,7 @@ export function familyMatch(stage,back,action){
  roles.forEach((role,i)=>{
   action(role,()=>{
    if(role.dataset.matched)return;
-   if(active<0){result.textContent='把称呼拖到空位，或先点空位再选称呼。';return;}
+   if(active<0){result.textContent=copy('把称呼拖到空位，或先点空位再选称呼。','Tap a space first, then choose a family label. You can also drag a label.');return;}
    match(active,i);
   },role.textContent.trim());
   role.classList.add('match-role');
