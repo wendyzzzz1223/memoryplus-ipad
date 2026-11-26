@@ -188,6 +188,7 @@ export function translateTraining(source, english) {
  const key=source.replace(/\s+/g,' ').trim();
  const tile=s=>english[s.trim()]||s.trim();
  const patterns=[
+  [/^当前得分[：:]?\s*(-?\d+)$/,(_,n)=>`Score: ${n}`],
   [/^第\s*(\d+)\s*个空位$/,(_,n)=>`Gap ${n}`],
   [/^拿起(.+)$/,(_,t)=>`Pick up ${tile(t)}`],
   [/^「(.+)」已入列$/,(_,t)=>`${tile(t)} is in place`],

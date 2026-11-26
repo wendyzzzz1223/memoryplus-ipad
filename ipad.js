@@ -669,7 +669,7 @@ function speed(round){
   const inactive=performance.now()-lastClick>=10000;
   tiles.forEach((n,index)=>n.classList.toggle('answer-pulse',(inactive||performance.now()<hintUntil)&&positions[index]===special));
  },complete,timerAnimation);
- const headerScore=named('top-right')?.querySelector('p:last-child');
+ const headerScore=named('top-right')?.lastElementChild;
  const update=()=>{if(points)points.textContent=score+' 分';if(headerScore)headerScore.textContent='当前得分：'+score;};
  tiles.forEach((n,index)=>action(n,()=>{
   if(ended||busy)return;
