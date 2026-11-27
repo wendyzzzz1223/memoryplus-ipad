@@ -50,3 +50,13 @@ html[lang=en] #stage .figma-family-match .match-role p{font-size:calc(23px * var
 #stage.album-layout [data-node-id="113:5317"]{cursor:pointer;border-radius:50%}
 #stage.album-layout .memory-playing{outline:4px solid #ee915b!important;outline-offset:5px}
 #stage.album-layout [data-node-id="113:5316"]{white-space:normal!important;line-height:1.25!important;height:auto!important;text-align:center;cursor:pointer}
+
+/* Quick Tap: the logical tile canvas must not paint over the sidebar.
+   The existing rounded play surface supplies the visible background. */
+#stage.speed-game [data-name="game-canvas"].speed-board{
+  background:none!important;
+  pointer-events:none!important;
+}
+#stage.speed-game .speed-board .speed-tile{
+  pointer-events:auto!important;
+}
